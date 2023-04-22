@@ -33,5 +33,9 @@ module Cafnoticed
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.to_prepare do
+      ActionMailer::Base.add_delivery_method :mail_handler, MailHandler
+    end
   end
 end
