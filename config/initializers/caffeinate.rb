@@ -53,3 +53,31 @@ Caffeinate.setup do |config|
   # config.default_unsubscribe_reason = "User unsubscribed"
   # config.default_ended_reason = "User ended"
 end
+
+class MockMailing
+  attr_reader :subscriber
+
+  def initialize(subscriber)
+    @subscriber = subscriber
+  end
+
+  # The following six methods are only necessary in the absence of Caffeinate PR#32
+  def caffeinate_campaign
+    self
+  end
+  def to_dripper
+    self
+  end
+  def run_callbacks(*args, **kwargs)
+    true
+  end
+  def drip
+    self
+  end
+  def enabled?(*args, **kwargs)
+    true
+  end
+  def update!(*args, **kwargs)
+    true
+  end
+end

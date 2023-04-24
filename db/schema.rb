@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_22_183507) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_23_174044) do
   create_table "caffeinate_campaign_subscriptions", force: :cascade do |t|
     t.integer "caffeinate_campaign_id", null: false
     t.string "subscriber_type", null: false
@@ -67,6 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_22_183507) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "phone"
   end
 
   add_foreign_key "caffeinate_campaign_subscriptions", "caffeinate_campaigns"
